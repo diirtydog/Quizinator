@@ -1,0 +1,5 @@
+:root {
+    --primary-color: rgba(0, 128, 128, 1);
+    --secondary-color: rgba(0, 128, 128, .4);
+    --tertiary-color: white; 
+}
