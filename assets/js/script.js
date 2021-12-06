@@ -33,6 +33,7 @@ var alpha = document.getElementById('a');
 var beta = document.getElementById('b');
 var charlie = document.getElementById('c');
 var delta = document.getElementById('d');
+var answer = document.getElementById("answer");
 //submitButton.addEventListener('click', beginQuiz);
 
 function beginQuiz(event) {
@@ -59,38 +60,67 @@ function generateQuestion() {
 
 function generateBtn () {
         var nowSelection = quizData[questionNumb];
-        // create the div for the buttons to reside in 
+        // select the div for the buttons to reside in 
         var selection = document.getElementById("classes")
-        selection.className = 'big';
+        
 
         // create the a button
         var alpha = document.createElement("button");
         alpha.textContent = "A:" + nowSelection.a;
         alpha.setAttribute("data-task-id", questionNumb);
         selection.appendChild(alpha);
+        alpha.id = 'btns';
         // create the b button
         var beta = document.createElement("button");
         beta.textContent = "B:" + nowSelection.b;
         beta.setAttribute("data-task-id", questionNumb);
         selection.appendChild(beta);
+        beta.className = 'btn';
         // create the c button
         var charlie = document.createElement("button");
         charlie.textContent = "C:" + nowSelection.c;
         charlie.setAttribute("data-task-id", questionNumb);
         selection.appendChild(charlie);
+        charlie.className = 'btn';
         // create the d button
         var delta = document.createElement("button");
         delta.textContent = "D:" + nowSelection.d;
         delta.setAttribute("data-task-id", questionNumb);
         selection.appendChild(delta);
+        delta.className = 'btn';
 
         //questionNumb++;
        
-}
+};
+
+//alpha.addEventListener('click')
+        //if (answer === alpha) {
+        //scorePlus();
+        ////questionNumb++;
+//};
+
 
 
 generateQuestion();
 
+var button  = document.getElementById('btns').addEventListener('click', buttonClick);
+
+function buttonClick() {
+        if (button === answer)
+        
+        console.log('button clicked')
+}
+var getParticipantName = function() {
+        var name = "";
+        while (name === '' || name === null) {
+                name = prompt('What is your name for the high score?');
+        }
+        return highscore;
+}
+var participantInfo = {
+        name: getParticipantName(),
+        score: 5
+};
         // I think i can append them to where they need to be in this function as well
 
 // make a loop that determines whether their selection was right or wrong
