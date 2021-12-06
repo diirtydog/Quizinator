@@ -41,10 +41,10 @@ function beginQuiz(event) {
 }
 
 // generate question with answers once the quiz has started
-function generateQuestion(nowQuestion) {
+function generateQuestion() {
         var nowQuestion = quizData[questionNumb];
         var questionEl = document.createElement("li");
-        var questions = questionEl.innerHTML = "<h2 class='question'>" + nowQuestion.question + "</h2>";
+        questionEl.innerHTML = "<h2 class='question'>" + nowQuestion.question + "</h2>";
         var questionsEl = document.getElementById("classes")
         questionsEl.appendChild(questionEl)
         questionEl.className = "question";
@@ -53,22 +53,44 @@ function generateQuestion(nowQuestion) {
         //questionEl.appendChild(nowQuestion);
         generateBtn();
         questionNumb++;
-        console.log(this)
+        //console.log(this)
         
 }
 
-function generateBtn (nowSelection) {
+function generateBtn () {
         var nowSelection = quizData[questionNumb];
-        var alpha = document.createElement("div")
-        alpha.innerHTML = "<button class='answers' type='submit'>" + nowSelection.a + "</button>";
-        var selectionsEl = document.getElementById("classes");
-        selectionsEl.appendChild(alpha);
-        alpha.setAttribute("data-task-id", questionNumb);
+        // create the div for the buttons to reside in 
+        var selection = document.getElementById("classes")
+        selection.className = 'big';
 
-        questionNumb++;
-        console.log(this);
+        // create the a button
+        var alpha = document.createElement("button");
+        alpha.textContent = "A:" + nowSelection.a;
+        alpha.setAttribute("data-task-id", questionNumb);
+        selection.appendChild(alpha);
+        // create the b button
+        var beta = document.createElement("button");
+        beta.textContent = "B:" + nowSelection.b;
+        beta.setAttribute("data-task-id", questionNumb);
+        selection.appendChild(beta);
+        // create the c button
+        var charlie = document.createElement("button");
+        charlie.textContent = "C:" + nowSelection.c;
+        charlie.setAttribute("data-task-id", questionNumb);
+        selection.appendChild(charlie);
+        // create the d button
+        var delta = document.createElement("button");
+        delta.textContent = "D:" + nowSelection.d;
+        delta.setAttribute("data-task-id", questionNumb);
+        selection.appendChild(delta);
+
+        //questionNumb++;
+       
 }
+
+
 generateQuestion();
+
         // I think i can append them to where they need to be in this function as well
 
 // make a loop that determines whether their selection was right or wrong
