@@ -12,7 +12,7 @@ quizData = [
         d: '<ILUVUMOM>',
         answer: '<script>'
     }, {
-        question: 'Where is the correct locatation to insert external JavaScript link',
+        question: 'Where is the correct location to insert external JavaScript link',
         a: 'head',
         b: 'footer',
         c: 'body',
@@ -27,19 +27,13 @@ quizData = [
         answer: 'alert("javascript is hard")'
     }
 ];
-// create variables used to select question location
-var questionEl = document.getElementById('question');
-var alpha = document.getElementById('a');
-var beta = document.getElementById('b');
-var charlie = document.getElementById('c');
-var delta = document.getElementById('d');
-var answer = document.getElementById("answer");
-//submitButton.addEventListener('click', beginQuiz);
 
-function beginQuiz(event) {
+
+function beginQuiz(event) { 
         event.preventDefault();
         generateQuestion();
-}
+};
+var questionElement = document.querySelector('#btn')
 
 // generate question with answers once the quiz has started
 function generateQuestion() {
@@ -53,7 +47,16 @@ function generateQuestion() {
         
         //questionEl.appendChild(nowQuestion);
         generateBtn();
+
+        // for (let i = 0; i < quizdata.length; i++) {
+        //         // event listener maybe
+        //         nowQuestion = document.setAttribute(quizData[questionNumb++]);
+
+
+        // 
         questionNumb++;
+        // event listener 
+
         //console.log(this)
         
 }
@@ -67,29 +70,30 @@ function generateBtn () {
         // create the a button
         var alpha = document.createElement("button");
         alpha.textContent = "A:" + nowSelection.a;
-        alpha.setAttribute("data-task-id", questionNumb);
+        alpha.setAttribute("data-task-id", nowSelection.a);
         selection.appendChild(alpha);
-        alpha.id = 'btns';
+        alpha.className = 'btn';
         // create the b button
         var beta = document.createElement("button");
         beta.textContent = "B:" + nowSelection.b;
-        beta.setAttribute("data-task-id", questionNumb);
+        beta.setAttribute("data-task-id", nowSelection.b);
         selection.appendChild(beta);
         beta.className = 'btn';
         // create the c button
         var charlie = document.createElement("button");
         charlie.textContent = "C:" + nowSelection.c;
-        charlie.setAttribute("data-task-id", questionNumb);
+        charlie.setAttribute("data-task-id", nowSelection.c);
         selection.appendChild(charlie);
         charlie.className = 'btn';
         // create the d button
         var delta = document.createElement("button");
         delta.textContent = "D:" + nowSelection.d;
-        delta.setAttribute("data-task-id", questionNumb);
+        delta.setAttribute("data-task-id", nowSelection.d);
         selection.appendChild(delta);
         delta.className = 'btn';
 
-        //questionNumb++;
+
+        questionNumb++;
        
 };
 
@@ -97,30 +101,58 @@ function generateBtn () {
         //if (answer === alpha) {
         //scorePlus();
         ////questionNumb++;
-//};
+//};// create variables used to select question location
+var questionEl = document.getElementById('question');
+var alpha = document.getElementById('btna');
+var beta = document.getElementById('btnb');
+var charlie = document.getElementById('btnc');
+var delta = document.getElementById('btnd');
+var answer = document.getElementById("answer");
+//submitButton.addEventListener('click', beginQuiz);
+function loadQuiz() {
+        var questionNumbData = quizData[i ];
 
+        questionEl.innerText = questionNumbData.question;
+        alpha.innerText = questionNumbData.a;
+        beta.innerText = questionNumbData.b;
+        charlie.innerText = questionNumbData.c;
+        delta.innerText = questionNumbData.d;
+
+        
+
+};
+//alpha.addEventListener("click", () => {
+        //questionNumb++;
+
+        //if (questionNumb < quizData.length) {
+                //loadQuiz();
+        //} else {
+                //alert("Your Finished")
+        //}
+
+//});
 
 
 generateQuestion();
 
-var button  = document.getElementById('btns').addEventListener('click', buttonClick);
+//var button  = document.getElementById('btna').addEventListener('click', buttonClick);
 
 function buttonClick() {
         if (button === answer)
         
         console.log('button clicked')
 }
-var getParticipantName = function() {
-        var name = "";
-        while (name === '' || name === null) {
-                name = prompt('What is your name for the high score?');
-        }
-        return highscore;
-}
-var participantInfo = {
-        name: getParticipantName(),
-        score: 5
-};
+//var getParticipantName = function() {
+        //var name = "";
+        //while (name === '' || name === null) {
+                ///name = prompt('What is your name for the high score?');
+        //}
+        //return highscore;
+//}
+//var participantInfo = {
+        //name: getParticipantName(),
+        ///score: 5
+//};
         // I think i can append them to where they need to be in this function as well
 
 // make a loop that determines whether their selection was right or wrong

@@ -10,15 +10,19 @@ header {
     justify-content: space-between;
     margin: 20px;
 }
-
-.biggy {
-    height: 600px;
-    position: relative;
+main {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vw;
+    justify-content: center;
+    align-items: center;
     border: 3px solid green;
     
     
 }
-.big {
+ig {
     margin: 0;
     position: absolute;
     top: 50%;
@@ -26,7 +30,7 @@ header {
     -ms-transform: translateY(-50%, -50%);
     transform: translateY(-50%, -50%);
 }
-.answers {
+answers {
     display: flex;
     flex-direction: column;
     justify-content: space-around;    
